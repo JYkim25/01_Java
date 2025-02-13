@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class OperatorPractice2 {
 	
-public void practice() {
+public void ex() {  //메써드명
 
 	/*
 	 * 
@@ -30,17 +30,18 @@ public void practice() {
 	Scanner sc = new Scanner(System.in);
 	
 	System.out.print("당신의 나이는 ? : ");
-	int input1 = sc.nextInt();
+	int age = sc.nextInt();
 	
-	String result = input1 >= 20 ? "저는 성인 입니다" : "저는 미성년 입니다";
-	String result2 = input1 >= 13 && input1 <= 19 ? " true" : "false" ;
-	String result3 = input1 >= 65 || input1 <= 12 ? " true" : "false" ;
+	String personType = (age >= 20) ? "성인" : "미성년";
+	System.out.println("저는 " + personType + "입니다");
 	
+	boolean isTeenager = (age >= 13) && (age <= 19);
+	System.out.println("청소년 입니까?" + isTeenager);
 	
-	System.out.println( result );
-	System.out.println( "청소년입니까? " + result2 );
-	System.out.println( "노인이거나 어린이 입니까? " + result3 );
+	boolean isSeniorOrChild = (age >= 65) || (age <= 12);
+	System.out.println("노인이거나 어린이입니까? " + isSeniorOrChild);
 	
+
 }
 
 }

@@ -23,14 +23,15 @@ public void practice1() {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("인원 수 입력 : ");
+		System.out.print("인원 수 : ");
 		int input1 = sc.nextInt();
 		
-		System.out.print("사탕 개수 입력 : ");
+		System.out.print("사탕 개수 : ");
 		int input2 = sc.nextInt();
 		
-		System.out.println("1인당 사탕 개수 : " + input2 / input1 + " 남는 사탕 개수 : " + input2 % input1 );
-		
+		//System.out.println("1인당 사탕 개수 : " + input2 / input1 + " 남는 사탕 개수 : " + input2 % input1 );
+		System.out.printf("1인당 사탕 개수 : %d\n", input2 / input1);
+		System.out.printf("남는 사탕 개수 : %d\n", input2 % input1);
 		
 	}
 
@@ -52,34 +53,34 @@ public void practice2() {
 	Scanner sc = new Scanner(System.in);
 	
 	System.out.print("이름 : ");
-	String input1 = sc.nextLine();
+	String name = sc.next();
 	
 	System.out.print("학년 : ");
-	int input2 = sc.nextInt();
+	int grade = sc.nextInt();
 	
 	System.out.print("반 : ");
-	int input3 = sc.nextInt();
+	int classroom = sc.nextInt();
 	
 	System.out.print("번호 : ");
-	int input4 = sc.nextInt();
+	int number = sc.nextInt();
 	
-	sc.nextLine();
+	sc.nextLine(); // 입력버퍼 비우는 일 (개행문자 비우기)
 	
 	System.out.print("성별 : ");
-	String input5 = sc.nextLine();
+	String gender = sc.nextLine();
 	
 	System.out.print("성적 : ");
-	double input6 = sc.nextDouble();
+	double score = sc.nextDouble();
 	
 	
 	
-	System.out.println("이름 : " + input1 );
-	System.out.println("학년 : " + input2 );
-	System.out.println("반 : " + input3 );
-	System.out.println("번호 : " + input4 );
-	System.out.println("성별 : " + input5 );
-	System.out.println("성적 : " + input6 );
-	System.out.printf( "%d학년 %d반 %d번 %s %s의 성적은 %.2f이다.",input2, input3, input4, input1, input5, input6 );
+	System.out.println("이름 : " + name );
+	System.out.println("학년 : " + grade );
+	System.out.println("반 : " + classroom );
+	System.out.println("번호 : " + number );
+	System.out.println("성별 : " + gender );
+	System.out.println("성적 : " + score );
+	System.out.printf( "%d학년 %d반 %d번 %s %s의 성적은 %.2f이다.",grade, classroom, number, name, gender, score );
 
 	
 }
@@ -101,20 +102,32 @@ public void practice3() {
 Scanner sc = new Scanner(System.in);
 	
 	System.out.print("국어 점수 : ");
-	int input1 = sc.nextInt();
+	int kor = sc.nextInt();
 	
 	System.out.print("영어 점수 : ");
-	int input2 = sc.nextInt();
+	int eng = sc.nextInt();
 	
 	System.out.print("수학 점수 : ");
-	int input3 = sc.nextInt();
+	int math = sc.nextInt();
 	
-	System.out.println("국어 : " + input1 );
-	System.out.println("영어 : " + input2 );
-	System.out.println("수학 : " + input3 );
-	System.out.println("합계 : " + (input1 + input2 + input3) );
-	System.out.println("평균 : " + (input1 + input2 + (double)input3) / 3 );
+	int sum = kor + eng + math; // 합계
+	double avg = sum / 3.0;  // 평균
 	
+	System.out.println("합계 :" + sum);
+	System.out.printf("평균 : %.1f\n", avg);
+	
+	//System.out.println("국어 : " + kor );
+	//System.out.println("영어 : " + eng );
+	//System.out.println("수학 : " + math );
+	//System.out.println("합계 : " + (kor + eng + math) );
+	//System.out.println("평균 : " + (kor + eng + (double)math) / 3 );
+	
+	// 각 과목이 40점 이상이고 평균 60점 이상이어야 합격
+	// 그 외 불합격 출력
+	
+	boolean result = (kor >= 40) && (eng >= 40) && (math >= 40) && (avg >= 60);
+	
+	System.out.println(result ? "합격" : "불합격");
 	
 	
 }
