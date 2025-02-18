@@ -120,5 +120,48 @@ public class practice {
 		}
 		
 		
+
+
+
+	public void ex5() {
+//배열을 이용한 검색
+
+		// 입력받은 정수가 배열에 있는지 없는지 확인
+		// 만약 있다면 몇번 인덱스에 존재하는지 출력
+		
+		// ex)
+		// 정수 입력 : 200
+		// 1번 인덱스에 존재
+		// 정수 입력 : 5
+		// 존재하지 않음
+		
+		int[] a = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		
+		boolean flag = false;
+		
+		for(int i=0; i<a.length;i++) {
+			
+			if(a[i]==input) {
+				System.out.println(i + "번째 인덱스에 존재");
+				flag=true;
+			if( !flag ) {
+					System.out.println("존재하지 않음");
+			}
+			
+			}
+		}
 	}
+}
+
+		
+				
+				
+		
+		
+
 	
