@@ -120,9 +120,7 @@ public class practice {
 		}
 		
 		
-
-
-
+	
 	public void ex5() {
 //배열을 이용한 검색
 
@@ -156,7 +154,17 @@ public class practice {
 			}
 		}
 	}
+
+	
+	
+	public void ex6() {
+		
+		
+	}
+
+
 }
+
 
 		
 				
