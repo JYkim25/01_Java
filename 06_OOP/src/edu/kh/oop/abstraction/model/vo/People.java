@@ -112,7 +112,7 @@ public class People { // 국민(사람) 클래스
 		return name;
 	}
 	
-	public void setName(String name) {
+	public void setName(String name) { //name == 매개변수
 		this.name = name;
 	}
 	

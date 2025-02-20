@@ -9,7 +9,9 @@ public class run {
 		//p1.ex2();
 		//p1.ex3();
 		//p1.ex4();
-		p1.ex5();
+		//p1.ex5();
+		//p1.ex6();
+		p1.ex7();
 
 	}
 
