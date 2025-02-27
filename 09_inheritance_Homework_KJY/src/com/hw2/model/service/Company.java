@@ -19,49 +19,18 @@ public class Company implements ManagementSystem {
 	
 	
 	
-	
-	
-	public Employee[] getEmployees() {
-		return employees;
-	}
-
-
-
-
-
-	public void setEmployees(Employee[] employees) {
-		this.employees = employees;
-	}
-
-
-
-
-
-	public int getEmployeeCount() {
-		return employeeCount;
-	}
-
-
-
-
-
-	public void setEmployeeCount(int employeeCount) {
-		this.employeeCount = employeeCount;
-	}
-
-
-
 
 
 	@Override
 	public void addPerson(Person person) {
-		person = new Employee();
 		
-		for(int i = 0; i < emps.length; i++) {
-			if(emps[i] == null) {
-				emps[i]
-			}
+		if (person instanceof Employee && employeeCount < employees.length) {
+			employees[employeeCount++] = (Employee) person;
+			System.out.println("직원이 추가되었습니다" + person.getInfo());
 			
+		} else {
+			
+			System.out.println("인원이 모두 충원되어 더 이상 추가 못함");
 		}
 		
 	}
