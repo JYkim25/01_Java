@@ -1,25 +1,27 @@
 package com.toyFactory.model.dto;
 
+import java.util.Objects;
+import java.util.Set;
+
 public class Toy {
 
 	private String name;
-	private int availAge;
+	private int age;
 	private int price;
 	private String color;
-	private String manufacture;
-	private String[] materials;
+	private String manufactureDate;
+	private Set<String> materials;
 	
 	public Toy() {}
 
-	public Toy(String name, int availAge, int price, String color, String manufacture, String... materials) {
+	public Toy(String name, int age, int price, String color, String manufactureDate, Set<String> materials) {
 		super();
 		this.name = name;
-		this.availAge = availAge;
+		this.age = age;
 		this.price = price;
 		this.color = color;
-		this.manufacture = manufacture;
+		this.manufactureDate = manufactureDate;
 		this.materials = materials;
-	
 	}
 
 	public String getName() {
@@ -30,12 +32,12 @@ public class Toy {
 		this.name = name;
 	}
 
-	public int getAvailAge() {
-		return availAge;
+	public int getAge() {
+		return age;
 	}
 
-	public void setAvailAge(int availAge) {
-		this.availAge = availAge;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public int getPrice() {
@@ -54,24 +56,77 @@ public class Toy {
 		this.color = color;
 	}
 
-	public String getManufacture() {
-		return manufacture;
+	public String getManufactureDate() {
+		return manufactureDate;
 	}
 
-	public void setManufacture(String manufacture) {
-		this.manufacture = manufacture;
+	public void setManufactureDate(String manufactureDate) {
+		this.manufactureDate = manufactureDate;
 	}
 
-	public String[] getMaterials() {
+	public Set<String> getMaterials() {
 		return materials;
 	}
 
+	public void setMaterials(Set<String> materials) {
+		this.materials = materials;
+	}
+	
 	
 
+	public String getMaterialsAsString() {
+		StringBuilder sb = new StringBuilder();
+		
+		if(materials.size() == 0) {
+			return "없음";
+		}
+		
+		for(String material : materials) {
+			sb.append(material).append(", ");
+		}
+		
+		sb.setLength(sb.length() -2);
+		
+		return sb.toString();
+		
+	}
+
+	@Override
+	public String toString() {
+		return String.format("이름 : %s / 가격 : %d / 색상 : %s / 사용가능연령 : %d "
+				+ "/ 제조년월일 : %s / 재료 : %s", 
+				name, price, color, age, manufactureDate, getMaterialsAsString()
+				);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, color, manufactureDate, materials, name, price);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Toy other = (Toy) obj;
+		return age == other.age && Objects.equals(color, other.color)
+				&& Objects.equals(manufactureDate, other.manufactureDate) && Objects.equals(materials, other.materials)
+				&& Objects.equals(name, other.name) && price == other.price;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
 	
 	
 }
-

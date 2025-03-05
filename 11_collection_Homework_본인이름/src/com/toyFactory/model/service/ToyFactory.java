@@ -11,29 +11,47 @@ import com.toyFactory.model.dto.Toy;
 
 public class ToyFactory {
 
-	Scanner sc = new Scanner(System.in);
+	private Scanner sc = new Scanner(System.in);
 
 	
+	private Set<Toy> toySet = new HashSet<Toy>();
 	
-	
-	public Set<Toy> toyList = new HashSet<>();
+	private Map<Integer, String> materialMap = new HashMap<Integer, String>();
 
 	
 	public ToyFactory() {
-		toyList.add(new Toy("마미롱레그", 8, 36000, "분홍색", "19950805", "면직물", "고무"));
-		toyList.add(new Toy("허기워기", 5, 12000, "파란색", "19940312", "면직물", "플라스틱"));
-		toyList.add(new Toy("키시미시", 5, 15000, "분홍색", "19940505", "면직물", "플라스틱"));
-		toyList.add(new Toy("캣냅", 8, 27000, "보라색", "19960128", "면직물", "플라스틱"));
-		toyList.add(new Toy("파피", 12, 57000, "빨간색", "19931225", "면직물", "플라스틱", "고무"));
+		
+		materialMap.put(1, "면직물");
+		materialMap.put(2, "플라스틱");
+		materialMap.put(3, "유리");
+		materialMap.put(4, "고무");
+		
+		
+		toySet.add(new Toy("마미롱레그", 8, 36000, "분홍색", "19950805", addMaterials(1, 4)));
+		toySet.add(new Toy("허기워기", 5, 12000, "파란색", "19940312", addMaterials(1, 2)));
+		toySet.add(new Toy("키시미시", 5, 15000, "분홍색", "19940505", addMaterials(1, 2)));
+		toySet.add(new Toy("캣냅", 8, 27000, "보라색", "19960128", addMaterials(1, 2)));
+		toySet.add(new Toy("파피", 12, 57000, "빨간색", "19931225", addMaterials(1, 2, 4)));
 	
 	}
 	
-	public void MatrialList() {
-		Map<Integer, String> materialList = new HashMap<Integer, String>(); 
-		materialList.put(1, "면직물");
-		materialList.put(2, "플라스틱");
-		materialList.put(3, "유리");
-		materialList.put(4, "고무");
+	
+	public Set<String> addMaterials(Integer... materials){
+		
+		Set<String> addedMaterials = new HashSet<String>();
+		
+		for (Integer materialKey : materials) {
+			
+			String materialValue = materialMap.get(materialKey);
+			
+			if (materialValue != null) {
+				addedMaterials.add(materialValue);
+			}
+			
+		}
+		
+		return addedMaterials;
+		
 	}
 	
 		
